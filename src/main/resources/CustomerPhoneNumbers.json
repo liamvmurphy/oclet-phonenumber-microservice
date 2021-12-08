@@ -1,9 +1,15 @@
-[{
-  "customerId": "Jerry",
-  "phoneNumbers":["1111111111", "2222222222"]
-},
+[
+  {
+    "customerId": "Jerry",
+    "phoneNumbers": [
+      "1111111111",
+      "2222222222"
+    ]
+  },
   {
     "customerId": "Tom",
-    "phoneNumbers":["3333333333"]
+    "phoneNumbers": [
+      "3333333333"
+    ]
   }
 ]

@@ -36,13 +36,13 @@ public class PhoneNumberRepositoryImpl implements PhoneNumberRepository {
     //discrete method to add to our phone number datasource.
     private void addPhoneNumber(@NonNull String customerNumber, String phoneNumber) {
         //locate customer
-        if (phoneNumber == null){
+        if (phoneNumber == null) {
             return;
         }
         CustomerDetails customerDetails = customerDetailsList.stream()
                 .filter(item -> customerNumber.equals(item.getCustomerId()))
                 .findFirst()
                 .orElseThrow(CustomerNotFoundException::new);
-            customerDetails.addPhoneNumber(phoneNumber);
+        customerDetails.addPhoneNumber(phoneNumber);
     }
 }

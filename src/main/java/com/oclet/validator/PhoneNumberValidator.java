@@ -1,7 +1,7 @@
 package com.oclet.validator;
 
-import com.oclet.utils.StringMaskerUtils;
 import com.oclet.exception.ValidationException;
+import com.oclet.utils.StringMaskerUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

@@ -40,13 +40,14 @@ public class PhoneNumberConfigTest {
 
 
     @Before
-    public void initTests(){
+    public void initTests() {
         //very ordinary quickhand way of glueing *very* basic spring components together.
         ReflectionTestUtils.setField(phoneNumberConfig, "rawCustomerPhoneNumbers", rawCustomerPhoneNumbers);
         ReflectionTestUtils.setField(phoneNumberConfig, "objectMapper", new ObjectMapper());
     }
+
     @Test
-         public void customerDetailsList_whenResourceExist_ResourceIsLoaded(){
+    public void customerDetailsList_whenResourceExist_ResourceIsLoaded() {
         Assertions.assertThat(rawCustomerPhoneNumbers.getFilename()).isEqualTo("CustomerPhoneNumbers.json");
         List<CustomerDetails> list = phoneNumberConfig.customerDetailsList();
         Assertions.assertThat(list).contains(validCustomer1);
@@ -55,7 +56,7 @@ public class PhoneNumberConfigTest {
     }
 
     @Test
-    public void customerDetailsList_whenResourceDoesNotExist_throwResourceLoadingException(){
+    public void customerDetailsList_whenResourceDoesNotExist_throwResourceLoadingException() {
         thrown.expect(ResourceLoadingException.class);
         Resource badFile = new ClassPathResource("NotArealFile.json");
         ReflectionTestUtils.setField(phoneNumberConfig, "rawCustomerPhoneNumbers", badFile);
