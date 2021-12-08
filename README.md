@@ -22,7 +22,7 @@ See Swagger Spec built into project:
 
 
 for a headstart on testing in postman:
-[Postman Collection Link]((https://github.com/liamvmurphy/oclet-phonenumber-microservice/blob/main/Oclet-PhoneNumber-MS.postman_collection.json)
+[Postman Collection Link](https://github.com/liamvmurphy/oclet-phonenumber-microservice/blob/main/Oclet-PhoneNumber-MS.postman_collection.json)
 
 
 Please note (both users are me):
