@@ -1,0 +1,132 @@
+openapi: 3.0.0
+servers:
+  - url: http://localhost:8080
+info:
+  description: 'Telco APIs built for a Java code test. This pretend company is called Oclet (Telco backwards)'
+  version: 1.0.0
+  title: PhoneNumber API
+  contact:
+    email: liam.victor.murphy@gmail.com
+tags:
+  - name: PhoneNumbers
+    description: Interactions with customer's phone numbers
+paths:
+  /v1/customers/phonenumbers:
+    get:
+      tags:
+        - PhoneNumbers
+      summary: Retrieve all phonenumbers for all customers
+      operationId: getPhoneNumbers
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PhoneNumberDetails'
+  /v1/customers/{customer_id}/phonenumbers:
+    get:
+      tags:
+        - PhoneNumbers
+      summary: Retrieve all phonenumbers for a customer
+      operationId: getPhoneNumber
+      parameters:
+        - in: path
+          name: customer_id
+          schema:
+            type: string
+          required: true
+          description: Customer ID of the user to get
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/PhoneNumbers'
+        '400':
+          description: Invalid CustomerID supplied
+        '404':
+          description: CustomerID not found
+  /v1/customers/{customer_id}/phonenumber:
+    post:
+      tags:
+        - PhoneNumbers
+      summary: Add a phonenumber to a customer
+      operationId: addPhoneNumber
+      parameters:
+        - in: path
+          name: customer_id
+          schema:
+            type: string
+          required: true
+          description: Customer ID of the user to update
+      responses:
+        '400':
+          description: Invalid CustomerID supplied
+        '404':
+          description: CustomerID not found
+        '201':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/AddPhoneNumberResponse'
+      requestBody:
+        $ref: '#/components/requestBodies/AddPhoneNumberRequest'
+
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+components:
+  schemas:
+    PhoneNumbers:
+      type: object
+      required:
+        - phoneNumbers
+      properties:
+        phoneNumbers:
+          type: array
+          items:
+            type: string
+          example: ["0414141414", "0423232323"]
+    PhoneNumberDetails:
+      type: object
+      required:
+        - customerId
+        - phoneNumbers
+      properties:
+        customerId:
+          type: string
+          format: "774332"
+        phoneNumbers:
+          type: array
+          items:
+            type: string
+          example: ["0414141414", "0423232323"]
+    AddPhoneNumberResponse:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          example: "Phone number successfully added to customer details"
+  requestBodies:
+    AddPhoneNumberRequest:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - customerId
+              - phoneNumber
+            properties:
+              phoneNumber:
+                type: string
+                format: "0414141414"
+      required: true
