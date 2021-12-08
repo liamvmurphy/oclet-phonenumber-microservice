@@ -143,7 +143,7 @@ public class PhoneNumberControllerTest {
                 .andExpect(content()
                         .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("status", is("BAD_REQUEST")))
-                .andExpect(jsonPath("message", is("failed phoneNumber validation")));
+                .andExpect(jsonPath("message", is("Failed phoneNumber validation")));
     }
 
     @Test
