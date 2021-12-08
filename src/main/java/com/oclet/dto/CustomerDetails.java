@@ -3,7 +3,6 @@ package com.oclet.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
-import java.util.Set;
 import java.util.TreeSet;
 
 @Getter

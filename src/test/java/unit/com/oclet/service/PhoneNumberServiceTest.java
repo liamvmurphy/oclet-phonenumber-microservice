@@ -1,6 +1,7 @@
 package unit.com.oclet.service;
 
 import com.oclet.api.model.AddPhoneNumberResponse;
+import com.oclet.api.model.PhoneNumbers;
 import com.oclet.dto.CustomerDetails;
 import com.oclet.exception.CustomerNotFoundException;
 import com.oclet.repository.PhoneNumberRepository;
@@ -13,7 +14,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.TreeSet;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -60,12 +64,11 @@ public class PhoneNumberServiceTest {
 
     @Test
     public void getPhoneNumbersByCustomerId_whenPhoneNumbersExist() {
-        CustomerDetails customerDetails = phoneNumberService.getPhoneNumbersByCustomerId("Batman");
+        PhoneNumbers phoneNumbers = phoneNumberService.getPhoneNumbersByCustomerId("Batman");
         Mockito.verify(phoneNumberRepository, Mockito.times(1)).retrievePhoneNumbers("Batman");
-        assertThat(customerDetails.getCustomerId()).isEqualTo("Batman");
-        assertThat(customerDetails.getPhoneNumbers().size()).isEqualTo(2);
-        assertThat(customerDetails.getPhoneNumbers().contains("0499999999")).isTrue();
-        assertThat(customerDetails.getPhoneNumbers().contains("0488888888")).isTrue();
+        assertThat(phoneNumbers.getPhoneNumbers().size()).isEqualTo(2);
+        assertThat(phoneNumbers.getPhoneNumbers().contains("0499999999")).isTrue();
+        assertThat(phoneNumbers.getPhoneNumbers().contains("0488888888")).isTrue();
     }
 
     @Test

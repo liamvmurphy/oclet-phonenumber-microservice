@@ -2,6 +2,9 @@ package component.com.ocelet.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.oclet.Application;
+import com.oclet.api.model.AddPhoneNumberRequest;
+import com.oclet.repository.PhoneNumberRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Spy;
@@ -11,9 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import com.oclet.Application;
-import com.oclet.api.model.AddPhoneNumberRequest;
-import com.oclet.repository.PhoneNumberRepository;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -55,6 +55,7 @@ public class PhoneNumberControllerTest {
                 .andExpect(jsonPath("status", is("NOT_FOUND")))
                 .andExpect(jsonPath("message", is("API version unsupported")));
     }
+
     @Test
     public void getAllPhoneNumbers_whenVersionNegative_return404NotFound() throws Exception {
         mvc.perform(get("/v-1/customers/phonenumbers")
@@ -73,7 +74,6 @@ public class PhoneNumberControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content()
                         .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("customerId", is("Jerry")))
                 .andExpect(jsonPath("phoneNumbers[0]", is("1111111111")))
                 .andExpect(jsonPath("phoneNumbers.[1]", is("2222222222")));
     }
@@ -99,6 +99,7 @@ public class PhoneNumberControllerTest {
                 .andExpect(jsonPath("status", is("NOT_FOUND")))
                 .andExpect(jsonPath("message", is("API version unsupported")));
     }
+
     @Test
     public void getPhoneNumbersByCustomerId_whenVersionNegative_return404NotFound() throws Exception {
         mvc.perform(get("/v-1/customers/PoisonIvy/phonenumbers")
@@ -142,7 +143,7 @@ public class PhoneNumberControllerTest {
                 .andExpect(content()
                         .contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("status", is("BAD_REQUEST")))
-                .andExpect(jsonPath("message", is("failed phoneNumber validation")));
+                .andExpect(jsonPath("message", is("Failed phoneNumber validation")));
     }
 
     @Test
@@ -156,6 +157,7 @@ public class PhoneNumberControllerTest {
                 .andExpect(jsonPath("status", is("NOT_FOUND")))
                 .andExpect(jsonPath("message", is("API version unsupported")));
     }
+
     @Test
     public void addPhoneNumberToCustomerDetails_whenVersionNegative_return404NotFound() throws Exception {
         mvc.perform(post("/v-1/customers/Jerry/phonenumber")

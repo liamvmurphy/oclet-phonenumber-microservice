@@ -81,13 +81,13 @@ public class PhoneNumberRepositoryImplTest {
     }
 
     @Test
-    public void activatePhoneNumber_whenPhoneNumberNull_nothingIsAdded()  {
+    public void activatePhoneNumber_whenPhoneNumberNull_nothingIsAdded() {
         phoneNumberRepository.activatePhoneNumber("Batman", null);
         Assertions.assertThat(phoneNumberRepository.retrievePhoneNumbers("Batman").getPhoneNumbers().isEmpty());
     }
 
     @Test
-    public void activatePhoneNumber_whenCustomerNull_nothingIsAdded()  {
+    public void activatePhoneNumber_whenCustomerNull_nothingIsAdded() {
         //This class should never be used like this, validation is done via the API to ensure this does not happen. @NonNull marked on method
         //To ensure developers don't get the wrong idea.
         thrown.expect(NullPointerException.class);
