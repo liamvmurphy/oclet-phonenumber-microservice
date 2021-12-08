@@ -17,4 +17,4 @@ to start up the tomcat server with springboot running
 ```mvn spring-boot:run```
 
 See Swagger Spec built into project:
-[Swagger Link](https://github.com/liamvmurphy/oclet-phonenumber-microservice/src/main/api/PhoneNumberApi-v1.swagger.yaml)
+[Swagger Link](https://github.com/liamvmurphy/oclet-phonenumber-microservice/blob/main/src/main/api/PhoneNumberApi-v1.swagger.yaml)
