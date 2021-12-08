@@ -36,7 +36,7 @@ public class PhoneNumberConfig {
 
     /**
      * @return List of Customers and their single/multiple phonenumbers.
-     * Bean and can be loaded by other repository class. This would not obviously not be recommended for a large datasource as this approach
+     * Bean and can be loaded by other repository class. This would obviously not be recommended for a large datasource as this approach
      * Is not scalable and limited by memory.
      */
     @Bean
