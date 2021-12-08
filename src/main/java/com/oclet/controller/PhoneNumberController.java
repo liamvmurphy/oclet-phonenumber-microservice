@@ -74,7 +74,6 @@ class PhoneNumberController {
      *                VERSION NOT FOUND exceptions to users when requesting to an invalid version
      * @return standard ResponseEntity.
      */
-    //make these accept only json
     @PostMapping("/v{version}/customers/{customer_id}/phonenumber")
     public ResponseEntity<AddPhoneNumberResponse> addPhoneNumberToCustomerDetails(
             @PathVariable long version,

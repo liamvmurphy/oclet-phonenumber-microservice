@@ -16,9 +16,16 @@ To start assemble the JAR
 to start up the tomcat server with springboot running
 ```mvn spring-boot:run```
 
+
 See Swagger Spec built into project:
 [Swagger Link](https://github.com/liamvmurphy/oclet-phonenumber-microservice/blob/main/src/main/api/PhoneNumberApi-v1.swagger.yaml)
 
-Please note (both users are me: 
+
+for a headstart on testing in postman:
+[Postman Collection Link]((https://github.com/liamvmurphy/oclet-phonenumber-microservice/blob/main/Oclet-PhoneNumber-MS.postman_collection.json)
+
+
+Please note (both users are me):
 - leekitkat is the GIT user on my machine! :-).
 - liamvmurphy is a user I just created to host the public repo! :-)
+

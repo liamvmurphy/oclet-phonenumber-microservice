@@ -1,0 +1,71 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Oclet-PhoneNumber-MS",
+		"_postman_id": "f6bdf06d-82cc-d93d-61ae-57e903269b8b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ActivatePhoneNumber",
+			"request": {
+				"url": "localhost:8080/v1/customers/Tom/phonenumber",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phoneNumber\": \"0414992283\"\n    \n}"
+				},
+				"description": "Activations Phone Number for Tom"
+			},
+			"response": []
+		},
+		{
+			"name": "GetCustomerPhoneNumber",
+			"request": {
+				"url": "localhost:8080/v1/customers/Tom/phonenumbers",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phoneNumber\": \"0414992283\"\n    \n}"
+				},
+				"description": "Gets Tom's Phonenumbers"
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllPhoneNumbers",
+			"request": {
+				"url": "localhost:8080/v1/customers/phonenumbers",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phoneNumber\": \"0414992283\"\n    \n}"
+				},
+				"description": "Get All customers' phone numbers"
+			},
+			"response": []
+		}
+	]
+}

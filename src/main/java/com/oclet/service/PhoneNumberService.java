@@ -17,6 +17,7 @@ import java.util.List;
 public class PhoneNumberService {
 
     private final PhoneNumberRepository phoneNumberRepository;
+    private static final String SUCCESSFUL_ADD_PHONE_NUMBER_MESSAGE = "Successfully added";
 
     public List<CustomerDetails> getAllPhoneNumbers() {
         return phoneNumberRepository.retrievePhoneNumbers();
@@ -29,7 +30,7 @@ public class PhoneNumberService {
 
     public AddPhoneNumberResponse addPhoneNumberToCustomerDetails(String customerId, String phoneNumber) {
         phoneNumberRepository.activatePhoneNumber(customerId, phoneNumber);
-        return new AddPhoneNumberResponse("Successfully added");
+        return new AddPhoneNumberResponse(SUCCESSFUL_ADD_PHONE_NUMBER_MESSAGE);
     }
 
 }
