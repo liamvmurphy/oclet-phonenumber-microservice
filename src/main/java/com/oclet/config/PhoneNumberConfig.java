@@ -42,9 +42,7 @@ public class PhoneNumberConfig {
     @Bean
     public List<CustomerDetails> customerDetailsList() {
         //Try-With to ensure InputSteam is closed on fail.
-        log.info("customerCustomerDetails 1");
         try (InputStream is = getRawCustomerPhoneNumbers().getInputStream()) {
-            log.info("customerCustomerDetails 2");
             String customerDetailsString = IOUtils.toString(is, StandardCharsets.UTF_8);
             log.info("customerCustomerDetails 3 {}", customerDetailsString);
             return Arrays.asList(objectMapper.readValue(customerDetailsString, CustomerDetails[].class));
