@@ -18,3 +18,7 @@ to start up the tomcat server with springboot running
 
 See Swagger Spec built into project:
 [Swagger Link](https://github.com/liamvmurphy/oclet-phonenumber-microservice/blob/main/src/main/api/PhoneNumberApi-v1.swagger.yaml)
+
+Please note (both users are me: 
+- leekitkat is the GIT user on my machine! :-).
+- liamvmurphy is a user I just created to host the public repo! :-)
